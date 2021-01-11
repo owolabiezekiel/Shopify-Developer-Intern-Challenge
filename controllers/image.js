@@ -101,7 +101,7 @@ exports.deleteOneImage = asyncHandler(async (req, res, next) => {
 })
 
 
-exports.deleteMultipleImage = asyncHandler(async (req, res, next) => {
+exports.deleteMultipleImages = asyncHandler(async (req, res, next) => {
   const imageID = req.params.imageID
   const image = await Image.findById(imageID)
   if(!image){

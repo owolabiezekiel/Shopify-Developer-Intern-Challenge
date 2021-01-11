@@ -14,7 +14,6 @@ connectDB();
 
 //Route files
 const auth = require("./routes/auth");
-const users = require("./routes/users");
 const image = require("./routes/image")
 
 const app = express();
@@ -32,7 +31,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Mount routers
 app.use("/api/v1/auth", auth);
-app.use("/api/v1/users", users);
 app.use("/api/v1/image", image)
 
 // Middlewares are linear. It must appear after all the routes that need it have been mounted
