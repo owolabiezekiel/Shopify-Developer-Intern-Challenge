@@ -16,6 +16,7 @@ exports.registerUser = asyncHandler(async (req, res, next) => {
 
   res.status(201).json({
     success: true,
+    message: "User created",
     token: token,
   });
 });
@@ -57,15 +58,15 @@ exports.getMe = asyncHandler(async (req, res, next) => {
   });
 });
 
-exports.getFullProfile = (async(req, res, next) => {
+exports.getFullProfile = async (req, res, next) => {
   const fullProfile = await User.findById(req.user.id).populate({
-    path: "images"
+    path: "images",
   });
   res.status(200).json({
     success: true,
     data: fullProfile,
   });
-})
+};
 
 exports.updateMe = asyncHandler(async (req, res, next) => {
   const fieldsToUpdate = {
@@ -82,4 +83,3 @@ exports.updateMe = asyncHandler(async (req, res, next) => {
     data: user,
   });
 });
-

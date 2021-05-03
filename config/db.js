@@ -5,7 +5,7 @@ const connectDB = async () => {
     useCreateIndex: true,
     useFindAndModify: false,
     useUnifiedTopology: true,
-  })
+  });
 
   console.log(
     `MongoDB Connected: ${dbconn.connection.host}`.cyan.underline.bold
